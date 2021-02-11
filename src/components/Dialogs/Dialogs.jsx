@@ -7,6 +7,7 @@ const Dialogs =(props)=>{
 return <div>
 
 Dialogs
+<span> gg</span>
 
 
 
