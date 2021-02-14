@@ -11,7 +11,13 @@
   grid-template-columns: 2fr 10fr;
 
 }
+.app-wrapper-contant{
+  
+    grid-area:  c;
+    background-color:  red;
+  
 
+}
 
 
 
