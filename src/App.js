@@ -16,7 +16,7 @@ const App =()=> {
            <Navbar/>
          
          <div className='app-wrapper-contant'>
-           <Route path='/dialogs' component={Dialogs}/>
+           <Route /* exact */ path='/dialogs' component={Dialogs}/>
            <Route path='/profile' component={Profile}/>
            <Route path='/settings' component={Settings}/>
            <Route path='/news' component={News} />
