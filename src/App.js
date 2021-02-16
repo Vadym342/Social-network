@@ -8,7 +8,10 @@ import Music from './components/Music/Music';
 import News from './components/News/News';
 import Settings from './components/Settings/Settings';
 
-const App =()=> {
+
+
+const App =(props)=> {
+
   return (
     <BrowserRouter>
     <div className='app-wrapper'>
@@ -16,11 +19,11 @@ const App =()=> {
            <Navbar/>
          
          <div className='app-wrapper-contant'>
-           <Route /* exact */ path='/dialogs' component={Dialogs}/>
-           <Route path='/profile' component={Profile}/>
-           <Route path='/settings' component={Settings}/>
-           <Route path='/news' component={News} />
-           <Route path='/music' component={Music} />
+           <Route /* exact */ path='/dialogs' render={()=><Dialogs dialogs={props.dialogs} messages={props.messages}/>}/>
+           <Route path='/profile' render={()=><Profile  post={props.post} />}/>
+           <Route path='/settings' render={()=>Settings}/>
+           <Route path='/news' render={()=>News}/>
+           <Route path='/music' render={()=>Music}/>
          
          
         </div>
