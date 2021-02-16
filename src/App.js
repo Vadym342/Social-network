@@ -10,25 +10,32 @@ import Settings from './components/Settings/Settings';
 
 
 
-const App =(props)=> {
+const App = (props) => {
 
   return (
     <BrowserRouter>
-    <div className='app-wrapper'>
-           <Header/>
-           <Navbar/>
-         
-         <div className='app-wrapper-contant'>
-           <Route /* exact */ path='/dialogs' render={()=><Dialogs dialogs={props.dialogs} messages={props.messages}/>}/>
-           <Route path='/profile' render={()=><Profile  post={props.post} />}/>
-           <Route path='/settings' render={()=>Settings}/>
-           <Route path='/news' render={()=>News}/>
-           <Route path='/music' render={()=>Music}/>
-         
-         
+      <div className='app-wrapper'>
+        <Header />
+        <Navbar />
+
+        <div className='app-wrapper-contant'>
+          <Route /* exact */ path='/dialogs'
+            render={() => <Dialogs
+              dialogs={props.state.dialogsPage.dialogs}
+              messages={props.state.dialogsPage.messages} />} />
+
+          <Route path='/profile'
+            render={() => <Profile
+              post={props.state.profilePage.post} />} />
+          <Route path='/settings' render={() => Settings} />
+
+          <Route path='/news' render={() => News} />
+          <Route path='/music' render={() => Music} />
+
+
         </div>
 
-    </div>
+      </div>
     </BrowserRouter>
   );
 }
