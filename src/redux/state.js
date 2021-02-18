@@ -1,5 +1,6 @@
-import { rerederEntireTree } from "../render";
+let rerederEntireTree = () => {
 
+}
 let state = {
 
 
@@ -20,8 +21,7 @@ let state = {
         ]
     },
     profilePage: {
-
-
+        newPostText: 'newPostText',
         post: [
             { id: 1, messages: 'ffffff', likecount: 5 },
             { id: 2, messages: 'aaaaaaa', likecount: 15 }
@@ -36,15 +36,28 @@ let state = {
     }
 }
 
-export let addPost = (messagePost) => {
-    let newPost={
+export const addPost = () => {
+    let newPost = {
         id: 3,
-        messages: messagePost,
+        messages: state.profilePage.newPostText,
         likecount: 0
     };
 
     state.profilePage.post.push(newPost);
-rerederEntireTree(state);
+    state.profilePage.newPostText = '';
+    rerederEntireTree(state);
+
+}
+
+
+export const updateNewPostText = (newText) => {
+    state.profilePage.newPostText = newText;
+    rerederEntireTree(state);
+}
+
+export const subscribe = (observer) => {
+    rerederEntireTree = observer;         // !pattern observer 
+
 }
 
 export default state;
