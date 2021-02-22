@@ -1,5 +1,5 @@
 let store = {
-    _state :{
+    _state: {
 
 
         dialogsPage: {
@@ -33,32 +33,34 @@ let store = {
             ]
         }
     },
-    getState(){
-        return this._state;
-    },
     _callSubscriber() {
         console.log('State changed');
     },
-    addPost() {
-        let newPost = {
-            id: 3,
-            messages: this._state.profilePage.newPostText,
-            likecount: 0
-        };
-        this._state.profilePage.post.push(newPost);
-        this._state.profilePage.newPostText = '';
-        this._callSubscriber(this._state);
+    getState() {
+        return this._state;
+    },
+    subscribe(observer) {
+        this._callSubscriber = observer;         // !pattern observer 
 
     },
-     updateNewPostText  (newText) {
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this._state);
-    },
-     subscribe(observer) {
-        this._callSubscriber = observer;         // !pattern observer 
-    
+    dispatch(action) {      //{ type : 'ADD-POST'}
+ if(action.type==='ADD-POST'){
+    let newPost = {
+        id: 3,
+        messages: this._state.profilePage.newPostText,
+        likecount: 0
+    };
+    this._state.profilePage.post.push(newPost);
+    this._state.profilePage.newPostText = '';
+    this._callSubscriber(this._state);
+
+ }else if(action.type==='UPDATE-NEW-POST-TEXT'){
+    this._state.profilePage.newPostText = action.newText;
+    this._callSubscriber(this._state);
+ }else console.log('kabzda');
     }
+
 }
 
 export default store;
-window.store= store;
+window.store = store;
