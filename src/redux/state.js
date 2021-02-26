@@ -1,12 +1,13 @@
 const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT ='UPDATE-NEW-POST-TEXT';
-
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+const ADD_MESSAGE = 'ADD-MESSAGE';
 let store = {
     _state: {
 
 
         dialogsPage: {
-
+            newMessageText: 'newMessageText',
             dialogs: [
                 { id: 1, name: 'Vasyan' },
                 { id: 2, name: 'Max' },
@@ -20,6 +21,7 @@ let store = {
                 { id: 2, messages: 'hello' },
                 { id: 3, messages: 'blabla' },
             ]
+
         },
         profilePage: {
             newPostText: 'newPostText',
@@ -47,39 +49,65 @@ let store = {
 
     },
     dispatch(action) {      //{ type : 'ADD-POST'}
- if(action.type==='ADD-POST'){
-    let newPost = {
-        id: 3,
-        messages: this._state.profilePage.newPostText,
-        likecount: 0
-    };
-    this._state.profilePage.post.push(newPost);
-    this._state.profilePage.newPostText = '';
-    this._callSubscriber(this._state);
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 3,
+                messages: this._state.profilePage.newPostText,
+                likecount: 0
+            };
+            this._state.profilePage.post.push(newPost);
+            this._state.profilePage.newPostText = '';
+            this._callSubscriber(this._state);
 
- }else if(action.type==='UPDATE-NEW-POST-TEXT'){
-    this._state.profilePage.newPostText = action.newText;
-    this._callSubscriber(this._state);
- }else console.log('kabzdaa');
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            this._state.profilePage.newPostText = action.newText;
+            this._callSubscriber(this._state);
+        } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+            this._state.dialogsPage.newMessageText = action.newMessageText;
+            this._callSubscriber(this._state);
+
+        } else if (action.type === 'ADD-MESSAGE') {
+            let newMessage = {
+                id: 4,
+                messages: this._state.dialogsPage.newMessageText
+            };
+            this._state.dialogsPage.messages.push(newMessage);
+            this._state.dialogsPage.newMessageText = '';
+            this._callSubscriber(this._state);
+
+        } else console.log('kabzdaa');
     }
 
 }
 
+export const addMessageActionCreator = () => {
+    return {
+        type: ADD_MESSAGE
+    }
+
+
+
+}
 export const addPostActionCreator = () => {
- 
     return {
-      type: ADD_POST
+        type: ADD_POST
     }
-  
-  
-  }
+}
+
+export const updateNewMessageTextActionCreator = (text) => {
+return {
+    type: UPDATE_NEW_MESSAGE_TEXT,
+    newMessage: text
+}
+
+}
 export const updateNewPostTextActionCreator = (text) => {
-  
+
     return {
-      type: UPDATE_NEW_POST_TEXT ,
-      newText: text
+        type: UPDATE_NEW_POST_TEXT,
+        newText: text
     }
-  
-  }
+
+}
 export default store;
 window.store = store;

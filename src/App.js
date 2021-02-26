@@ -21,8 +21,11 @@ const App = (props) => {
       <div className='app-wrapper-contant'>
         <Route /* exact */ path='/dialogs'
           render={() => <Dialogs
-            dialogs={props.state.dialogsPage.dialogs}
-            messages={props.state.dialogsPage.messages} />} />
+            dialogsPage={props.state.dialogsPage}
+            dispatch={props.dispatch}
+
+
+          />} />
 
         <Route path='/profile'
           render={() => <Profile
