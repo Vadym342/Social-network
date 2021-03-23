@@ -8,10 +8,12 @@ import store from './redux/redux-store';
 
 
  let rerederEntireTree = (state)=>{
+ 
 ReactDOM.render(
     <BrowserRouter>
  {/*  <React.StrictMode> */}
     <App 
+    store={store}
     state={store.getState()} 
     dispatch={store.dispatch.bind(store)} 
     />

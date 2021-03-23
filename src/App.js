@@ -7,6 +7,7 @@ import Music from './components/Music/Music';
 import News from './components/News/News';
 import Settings from './components/Settings/Settings';
 import { Route } from 'react-router-dom';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 
 
 
@@ -20,17 +21,11 @@ const App = (props) => {
 
       <div className='app-wrapper-contant'>
         <Route /* exact */ path='/dialogs'
-          render={() => <Dialogs
-            dialogsPage={props.state.dialogsPage}
-            dispatch={props.dispatch}
-            newMessageText={props.state.dialogsPage.newMessageText}
-
+          render={() => <DialogsContainer store={props.store}
           />} />
 
         <Route path='/profile'
-          render={() => <Profile
-            profilePage={props.state.profilePage}
-            dispatch={props.dispatch}
+          render={() => <Profile  store={props.store}
           />} />
         <Route path='/settings' render={() => Settings} />
 

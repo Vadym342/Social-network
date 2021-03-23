@@ -3,13 +3,11 @@ const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
 
 const initialState = {
-
     newPostText: 'newPostText',
     post: [
         { id: 1, messages: 'ffffff', likecount: 5 },
         { id: 2, messages: 'aaaaaaa', likecount: 15 }
     ]
-
 }
 
 
