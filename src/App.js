@@ -17,15 +17,15 @@ const App = (props) => {
 
     <div className='app-wrapper'>
       <Header />
-      <Navbar friends={props.state.navbar.friends} />
+     {/*  <Navbar friends={props.state.navbar.friends} /> */}
 
       <div className='app-wrapper-contant'>
         <Route /* exact */ path='/dialogs'
-          render={() => <DialogsContainer store={props.store}
+          render={() => <DialogsContainer /* store={props.store} */
           />} />
 
         <Route path='/profile'
-          render={() => <Profile  store={props.store}
+          render={() => <Profile  /* store={props.store} */
           />} />
         <Route path='/settings' render={() => Settings} />
 
