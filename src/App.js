@@ -8,6 +8,7 @@ import News from './components/News/News';
 import Settings from './components/Settings/Settings';
 import { Route } from 'react-router-dom';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
+import NavbarContainer from './components/Navbar/NavbarContainer';
 
 
 
@@ -17,7 +18,7 @@ const App = (props) => {
 
     <div className='app-wrapper'>
       <Header />
-      <Navbar /* friends={props.state.navbar.friends} */ />
+      <NavbarContainer />
 
       <div className='app-wrapper-contant'>
         <Route /* exact */ path='/dialogs'

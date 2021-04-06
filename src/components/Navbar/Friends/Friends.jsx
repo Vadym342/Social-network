@@ -9,7 +9,6 @@ const Friends = (props) => {
         </div>
     </div>)
     return (
-
         <div>
             <h3>Friends</h3>
             <div>

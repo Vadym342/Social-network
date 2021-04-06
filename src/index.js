@@ -4,16 +4,13 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import store from './redux/redux-store';
-import StoreContext, { Provider } from './StoreContext';
+import { Provider } from 'react-redux';
+//import StoreContext, { Provider } from './StoreContext';
 
-
-
- let rerederEntireTree = (state)=>{
- 
 ReactDOM.render(
     <BrowserRouter>
  {/*  <React.StrictMode> */}
- <Provider store={store}>
+ <Provider store={store}>              {/*  //! react-redux func or own StoreContext  */}
     <App 
 
    /*  store={store}
@@ -25,12 +22,4 @@ ReactDOM.render(
   </BrowserRouter>,document.getElementById('root') 
 );
 
-
-}
-rerederEntireTree(store.getState());
-
 //store.subscribe(rerederEntireTree);  //! work!!!
-store.subscribe(()=>{
-   let state = store.getState();
-   rerederEntireTree(state);
-});
