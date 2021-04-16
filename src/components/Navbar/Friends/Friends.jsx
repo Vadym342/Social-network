@@ -5,7 +5,7 @@ import s from './Friends.module.css'
 const Friends = (props) => {
 
     let friends = props.friends.map(f => <div>
-        <img img src="{f.img}"></img><div>{f.name}
+        <img img src={f.img}></img><div>{f.name}
         </div>
     </div>)
     return (

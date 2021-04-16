@@ -5,19 +5,19 @@ import React from 'react';
 const Dialogs = (props) => {
 
     let state = props.dialogsPage;
-    let dialogsElements = state.dialogs.map(d => <DialogItem name={d.name} id={d.id} />); 
+    let dialogsElements = state.dialogs.map(d => <DialogItem name={d.name}  id={d.id} />);
     let messagesElements = state.messages.map(m => <Message message={m.messages} id={m.id} />);
     let send = React.createRef();
 
     let addMessage = () => {
         props.addMessages();
-      }
-    
-      let onDialogsChange = () => {
-    
+    }
+
+    let onDialogsChange = () => {
+
         let text = send.current.value;
         props.updateNewMessageText(text);
-      }
+    }
 
     return (
         <div className={s.dialogs}>

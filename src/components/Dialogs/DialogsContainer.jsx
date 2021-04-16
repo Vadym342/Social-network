@@ -28,7 +28,7 @@ let mapStatetoProps = (state) => {
 
   return {
     dialogsPage: state.dialogsPage,
-    newMessageText: state.newMessageText,
+    newMessageText: state.dialogsPage.newMessageText,
   }
 
 };
@@ -41,7 +41,7 @@ let mapDispatchToProps = (dispatch) => {
     addMessages: () => {
       dispatch(addMessageActionCreator());
     }
-  }
+  } 
 
 };
 const DialogsContainer = connect(mapStatetoProps, mapDispatchToProps)(Dialogs)
