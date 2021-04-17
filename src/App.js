@@ -9,6 +9,7 @@ import Settings from './components/Settings/Settings';
 import { Route } from 'react-router-dom';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import NavbarContainer from './components/Navbar/NavbarContainer';
+import UsersContainer from './components/Users/UsersContainer';
 
 
 
@@ -33,6 +34,7 @@ const App = (props) => {
         <Route path='/news' render={() => News} />
         <Route path='/music' render={() => Music} />
 
+        <Route path='/users' render={()=><UsersContainer/>} />
 
       </div>
 
